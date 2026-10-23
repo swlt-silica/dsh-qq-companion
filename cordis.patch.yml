@@ -1,0 +1,48 @@
+- insert:
+    - id: qq-companion
+      name: dsh-qq-companion
+    - id: preset-qq-yuzu
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: qq-yuzu
+        name: QQ 角色陪伴
+        description: 保持工作区人格，使用受控 QQ 工具。
+        order: 11
+        plugins:
+          - id: qq-protocol
+            name: dsh-qq-companion/presets/qq-protocol.mjs
+          - id: qq-boundary
+            name: dsh-qq-companion/presets/qq-boundary.mjs
+          - id: compaction
+            name: cordis:group
+            group: true
+            isolate:
+              compaction: true
+              toolResultPruner: true
+            config:
+              - id: compaction-basic
+                name: '@deepseek-ai/dsh-compaction-basic'
+              - id: command-compact
+                name: '@deepseek-ai/dsh-command-compact'
+              - id: tool-result-pruner
+                name: '@deepseek-ai/dsh-compaction-tool-result-pruner'
+                config:
+                  thresholdChars: 50000
+                  headChars: 45000
+                  tailChars: 2000
+    - id: preset-qq-report
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: qq-report
+        name: QQ 群日报分析
+        description: 限定输入分析，无工具。
+        order: 12
+        plugins:
+          - id: qq-protocol
+            name: dsh-qq-companion/presets/qq-protocol.mjs
+            config:
+              report: true
+          - id: qq-boundary
+            name: dsh-qq-companion/presets/qq-boundary.mjs
+            config:
+              report: true

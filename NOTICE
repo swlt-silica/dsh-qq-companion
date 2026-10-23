@@ -1,0 +1,8 @@
+This plugin includes adapted MIT-licensed qq-bridge / QSH code.
+Copyright (c) 2026 Derpyu520 and qq-bridge / QSH contributors.
+See LICENSE. Modification includes a native DSH host, management UI, policy
+controls and an independent OneBot v11 WebSocket transport.
+
+SnowLuma and its SDK/MCP packages are not distributed by this package.
+An external OneBot v11 gateway is required and subject to its own license.
+DeepSeek Harness, Mnemon and installed dependencies retain their licenses.
